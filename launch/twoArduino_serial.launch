@@ -1,0 +1,26 @@
+<launch>
+
+	<node	pkg="rosserial_python"
+		type="serial_node.py"
+		name="twoArduino_LED"
+		output="screen">
+
+		<param name="port" value="/dev/ttyUSB0" />
+		<param name="baud" value="57600" />
+	</node>
+
+	<node	pkg="rosserial_python"
+		type="serial_node.py"
+		name="twoArduinos_RandNo"
+		output="screen">
+
+		<param name="port" value="/dev/ttyUSB1" />
+		<param name="baud" value="57600" />
+	</node>
+
+	<node	name="random_number"
+		pkg="rosserial_arduino_raspberry_pi"
+		type="display_calculate_LED_stage.py"
+		output="screen">
+	</node>
+</launch>
